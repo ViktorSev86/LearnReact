@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Hello, World!</h2>
+        <hr/>
+            <h3>Func min = 2, max = 10</h3>
+            <Counter min={2} max={10}/>
+            <h3>Func min = default, max = 10</h3>
+            <Counter max={10}/>
+        <hr/>
+        <div>
+            Text
+        </div>
     </div>
   );
 }
