@@ -1,12 +1,17 @@
-import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
-function Counter ({min = 1, max}) {
-    let [current, setCurrent] =  useState(min); 
+MinMax.propTypes = {
+    min: PropTypes.number,
+    max: PropTypes.number.isRequired,
+    current: PropTypes.number.isRequired,
+    onChange: PropTypes.func.isRequired,
+}
+
+function MinMax ({min = 1, max, current, onChange}) {
 
     function applyCurrent(num) {
         let validNum = Math.max(min, Math.min(max, num));
-        setCurrent(validNum);
+        onChange(validNum);
     }
 
     let inc = () => applyCurrent(current + 1);
@@ -18,10 +23,6 @@ function Counter ({min = 1, max}) {
         applyCurrent(isNaN(num) ? min : num);
     }
 
-    useEffect(() => {
-        applyCurrent(current);
-    }, [min, max]);
-
     return (
         <div>
             <button tupe="button" onClick={dec}>-</button>
@@ -31,9 +32,6 @@ function Counter ({min = 1, max}) {
     );
 }
 
-Counter.propTypes = {
-    min: PropTypes.number,
-    max: PropTypes.number,
-}
 
-export default Counter;
+
+export default MinMax;
