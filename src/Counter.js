@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 function Counter ({min = 1, max}) {
@@ -17,6 +17,10 @@ function Counter ({min = 1, max}) {
         let num = parseInt(e.target.value);
         applyCurrent(isNaN(num) ? min : num);
     }
+
+    useEffect(() => {
+        applyCurrent(current);
+    }, [min, max]);
 
     return (
         <div>
