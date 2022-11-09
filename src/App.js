@@ -9,8 +9,15 @@ function App() {
     setProducts(products.map(pr => pr.id != id ? pr : ({...pr, cnt,})));
   }
 
-  let Check = () => {
-    products.reduce(((previousValue, currentValue) => previousValue.price + currentValue.price, 0));
+  let delItem = (id) => {
+    setProducts(products.filter(pr => pr.id != id));
+  }
+
+  let totalPrice = products.reduce((acc, pr) => {return acc + pr.price * pr.cnt;}, 0);
+  
+
+  let mpt = () => {
+    "100"
   }
 
   return (
@@ -31,14 +38,18 @@ function App() {
               <td>{pr.title}</td>
               <td>{pr.price}</td>
               <td>{pr.rest}</td>
-              <td>{pr.cnt}</td>    
+              <td>{pr.cnt}</td>
+              <td>{pr.cnt * pr.price}</td>    
               <td>
                 <MinMax max={pr.rest} current={pr.cnt} onChange={cnt => setCnt(pr.id, cnt)}/>
-              </td>    
+              </td>
+              <button onClick={() => delItem(pr.id)}>X</button>    
             </tr>
           ))}
         </tbody>
       </table>
+      <hr/>
+      <strong>Итого: {totalPrice}</strong>
     </div>
   );
 }
