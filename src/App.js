@@ -1,6 +1,8 @@
 import './App.css';
 import React, {useState} from 'react';
 import MinMax from './MinMax.js';
+import MinMaxLazy from './MinMaxLazy.js'; //state
+import MinMaxLazyRef from './MinMaxLazyRef.js';
 
 function App() {
   let [products, setProducts] = useState(productsStub());
@@ -42,6 +44,12 @@ function App() {
               <td>{pr.cnt * pr.price}</td>    
               <td>
                 <MinMax max={pr.rest} current={pr.cnt} onChange={cnt => setCnt(pr.id, cnt)}/>
+              </td>
+              <td>
+              <MinMaxLazy max={pr.rest} current={pr.cnt} onChange={cnt => setCnt(pr.id, cnt)}/>
+              </td>
+              <td>
+              <MinMaxLazyRef min={0} max={pr.rest} current={pr.cnt} onChange={cnt => setCnt(pr.id, cnt)}/>
               </td>
               <button onClick={() => delItem(pr.id)}>X</button>    
             </tr>
