@@ -35,9 +35,9 @@ function MinMaxLazyRef ({min = 1, max, current, onChange}) {
 
     return (
         <div>
-            <button tupe="button" onClick={dec}>-</button>
+            <button type="button" onClick={dec}>-</button>
             <input ref={inp} type="text" defaultValue={current} onBlur={parseCurrentStr} onKeyPress={onKeyPress}/>
-            <button tupe="button" onClick={inc}>+</button>
+            <button type="button" onClick={inc}>+</button>
         </div>
     );
 }

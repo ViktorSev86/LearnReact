@@ -3,8 +3,11 @@ import React, {useState} from 'react';
 import MinMax from './MinMax.js';
 import MinMaxLazy from './MinMaxLazy.js'; //state
 import MinMaxLazyRef from './MinMaxLazyRef.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import useWindowSize from './hooks/useWindowSize'; //хук, который мы создали сами
 
 function App() {
+  let {width} = useWindowSize(); //Размер окна, полученный из нашего Хука
   let [products, setProducts] = useState(productsStub());
 
   let setCnt = (id, cnt) => {
@@ -17,13 +20,12 @@ function App() {
 
   let totalPrice = products.reduce((acc, pr) => {return acc + pr.price * pr.cnt;}, 0);
   
-
   let mpt = () => {
     "100"
   }
 
   return (
-    <div className="Some">
+    <div className="Some container mt-1">
       <h1>Products list</h1>
       <table>
         <tbody>
@@ -58,6 +60,9 @@ function App() {
       </table>
       <hr/>
       <strong>Итого: {totalPrice}</strong>
+      <footer>
+        Ширина:{width}
+      </footer>
     </div>
   );
 }

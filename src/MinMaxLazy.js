@@ -40,9 +40,22 @@ function MinMaxLazy ({min = 1, max, current, onChange}) {
 
     return (
         <div>
-            <button tupe="button" onClick={dec}>-</button>
-            <input type="text" value={inpVal} onChange={onInput} onBlur={parseCurrentStr} onKeyPress={onKeyPress}/>
-            <button tupe="button" onClick={inc}>+</button>
+            <button 
+                className="btn btn-warning" 
+                type="button" onClick={dec}
+            >-</button>
+            <input 
+                className="inp"
+                type="text"
+                value={inpVal}
+                onChange={onInput}
+                onBlur={parseCurrentStr}
+                onKeyPress={onKeyPress}
+            />
+            <button 
+                className="btn btn-success"
+                type="button" onClick={inc}
+            >+</button>
         </div>
     );
 }

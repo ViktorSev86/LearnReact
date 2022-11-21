@@ -25,9 +25,9 @@ function MinMax ({min = 1, max, current, onChange}) {
 
     return (
         <div>
-            <button tupe="button" onClick={dec}>-</button>
+            <button type="button" onClick={dec}>-</button>
             <input type="text" value={current} onChange={parseCurrentStr}/>
-            <button tupe="button" onClick={inc}>+</button>
+            <button type="button" onClick={inc}>+</button>
         </div>
     );
 }
